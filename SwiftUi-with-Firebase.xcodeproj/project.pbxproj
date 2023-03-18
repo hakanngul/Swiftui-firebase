@@ -20,6 +20,12 @@
 		AE0579DE29C4F8F100447470 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0579DD29C4F8F000447470 /* AuthenticationManager.swift */; };
 		AE0579E029C4FD4E00447470 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0579DF29C4FD4E00447470 /* RootView.swift */; };
 		AE0579E229C51F5500447470 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0579E129C51F5500447470 /* SettingsView.swift */; };
+		AEF8EC5529C642A10070EAEA /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = AEF8EC5429C642A10070EAEA /* GoogleSignIn */; };
+		AEF8EC5729C642A10070EAEA /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AEF8EC5629C642A10070EAEA /* GoogleSignInSwift */; };
+		AEF8EC5B29C645BC0070EAEA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8EC5A29C645BB0070EAEA /* Utilities.swift */; };
+		AEF8EC5D29C64CF30070EAEA /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8EC5C29C64CF30070EAEA /* SignInGoogleHelper.swift */; };
+		AEF8EC6029C66DA60070EAEA /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8EC5F29C66DA60070EAEA /* SignInWithApple.swift */; };
+		AEF8EC6329C66F9D0070EAEA /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = AEF8EC6229C66F9D0070EAEA /* Crypto */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,10 @@
 		AE0579DD29C4F8F000447470 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		AE0579DF29C4FD4E00447470 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		AE0579E129C51F5500447470 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AEF8EC5829C642EF0070EAEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AEF8EC5A29C645BB0070EAEA /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		AEF8EC5C29C64CF30070EAEA /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
+		AEF8EC5F29C66DA60070EAEA /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +51,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF8EC5729C642A10070EAEA /* GoogleSignInSwift in Frameworks */,
 				AE0579D429C4E87900447470 /* FirebaseAnalyticsSwift in Frameworks */,
+				AEF8EC5529C642A10070EAEA /* GoogleSignIn in Frameworks */,
+				AEF8EC6329C66F9D0070EAEA /* Crypto in Frameworks */,
 				AE0579D729C4F5A400447470 /* FirebaseAuth in Frameworks */,
 				AE0579D229C4E87900447470 /* FirebaseAnalytics in Frameworks */,
 			);
@@ -70,6 +83,9 @@
 		AE0579BF29C4DD1500447470 /* SwiftUi-with-Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				AEF8EC5E29C66D870070EAEA /* Helpers */,
+				AEF8EC5929C645B00070EAEA /* Utilities */,
+				AEF8EC5829C642EF0070EAEA /* Info.plist */,
 				AE0579D829C4F60B00447470 /* Authentication */,
 				AE0579CE29C4E1C900447470 /* GoogleService-Info.plist */,
 				AE0579C029C4DD1500447470 /* SwiftUi_with_FirebaseApp.swift */,
@@ -107,6 +123,23 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		AEF8EC5929C645B00070EAEA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AEF8EC5A29C645BB0070EAEA /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AEF8EC5E29C66D870070EAEA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AEF8EC5C29C64CF30070EAEA /* SignInGoogleHelper.swift */,
+				AEF8EC5F29C66DA60070EAEA /* SignInWithApple.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -127,6 +160,9 @@
 				AE0579D129C4E87900447470 /* FirebaseAnalytics */,
 				AE0579D329C4E87900447470 /* FirebaseAnalyticsSwift */,
 				AE0579D629C4F5A400447470 /* FirebaseAuth */,
+				AEF8EC5429C642A10070EAEA /* GoogleSignIn */,
+				AEF8EC5629C642A10070EAEA /* GoogleSignInSwift */,
+				AEF8EC6229C66F9D0070EAEA /* Crypto */,
 			);
 			productName = "SwiftUi-with-Firebase";
 			productReference = AE0579BD29C4DD1500447470 /* SwiftUi-with-Firebase.app */;
@@ -158,6 +194,8 @@
 			mainGroup = AE0579B429C4DD1500447470;
 			packageReferences = (
 				AE0579D029C4E87900447470 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				AEF8EC5329C642A10070EAEA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				AEF8EC6129C66F9D0070EAEA /* XCRemoteSwiftPackageReference "swift-crypto" */,
 			);
 			productRefGroup = AE0579BE29C4DD1500447470 /* Products */;
 			projectDirPath = "";
@@ -186,12 +224,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF8EC6029C66DA60070EAEA /* SignInWithApple.swift in Sources */,
 				AE0579E229C51F5500447470 /* SettingsView.swift in Sources */,
 				AE0579C329C4DD1500447470 /* ContentView.swift in Sources */,
 				AE0579C129C4DD1500447470 /* SwiftUi_with_FirebaseApp.swift in Sources */,
 				AE0579E029C4FD4E00447470 /* RootView.swift in Sources */,
+				AEF8EC5D29C64CF30070EAEA /* SignInGoogleHelper.swift in Sources */,
 				AE0579DA29C4F62000447470 /* AuthenticationView.swift in Sources */,
 				AE0579DE29C4F8F100447470 /* AuthenticationManager.swift in Sources */,
+				AEF8EC5B29C645BC0070EAEA /* Utilities.swift in Sources */,
 				AE0579DC29C4F7C500447470 /* SignInEmailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +365,7 @@
 				DEVELOPMENT_TEAM = 5C3SB5DK2F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUi-with-Firebase/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -353,6 +395,7 @@
 				DEVELOPMENT_TEAM = 5C3SB5DK2F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUi-with-Firebase/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -403,6 +446,22 @@
 				version = 10.4.0;
 			};
 		};
+		AEF8EC5329C642A10070EAEA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		AEF8EC6129C66F9D0070EAEA /* XCRemoteSwiftPackageReference "swift-crypto" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-crypto.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -420,6 +479,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE0579D029C4E87900447470 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		AEF8EC5429C642A10070EAEA /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEF8EC5329C642A10070EAEA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		AEF8EC5629C642A10070EAEA /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEF8EC5329C642A10070EAEA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		AEF8EC6229C66F9D0070EAEA /* Crypto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEF8EC6129C66F9D0070EAEA /* XCRemoteSwiftPackageReference "swift-crypto" */;
+			productName = Crypto;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

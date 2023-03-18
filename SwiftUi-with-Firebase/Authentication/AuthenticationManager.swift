@@ -6,20 +6,27 @@
 //
 
 import Foundation
-import FirebaseAuth
+import FirebaseCore
 
 struct AuthDataResultModel {
     let uid: String
     let email: String?
     let photoUrl: String?
+    let isAnonymous: Bool
     
-    init(user: User) {
+    init(user: FirebaseAuth.User) {
         self.uid = user.uid
         self.email = user.email
         self.photoUrl = user.photoURL?.absoluteString
+        self.isAnonymous = user.isAnonymous
     }
 }
 
+enum AuthProviderOption: String {
+    case email = "password"
+    case google = "google.com"
+    case apple = "apple.com"
+}
 
 final class AuthenticationManager : ObservableObject {
     
@@ -32,19 +39,43 @@ final class AuthenticationManager : ObservableObject {
         }
         return AuthDataResultModel(user: user)
     }
+    // google.com
+    // password
+    func getProvider() throws -> [AuthProviderOption] {
+        guard let providerData = Auth.auth().currentUser?.providerData else {
+            throw URLError(.badServerResponse)
+        }
+        
+        var providers : [AuthProviderOption] = []
+        
+        for provider in providerData {
+            if let option = AuthProviderOption(rawValue: provider.providerID) {
+                providers.append(option)
+            } else {
+                assertionFailure("Provider option not found: \(provider.providerID)")
+            }
+        }
+        return providers
+    }
+    
+    
+    
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+}
+
+// MARK: SIGN IN EMAIL
+extension AuthenticationManager {
     
     @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResultModel{
-        print("Before In CreateUser -- Login -- AuthenticationManager")
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
-        print("After In CreateUser -- Login -- AuthenticationManager")
         return AuthDataResultModel(user: authDataResult.user)
     }
-    
     @discardableResult
     func signInUser(email: String, password: String) async throws -> AuthDataResultModel{
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
-        
         return AuthDataResultModel(user: authDataResult.user)
     }
     
@@ -67,8 +98,25 @@ final class AuthenticationManager : ObservableObject {
         
         try await user.updateEmail(to: email)
     }
+}
+
+
+// MARK: SIGN IN SSO
+extension AuthenticationManager {
     
-    func signOut() throws {
-        try Auth.auth().signOut()
+    @discardableResult
+    func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel {
+        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
+        return try await signIn(credential: credential)
+    }
+    
+    func signInWithApple(credential: AuthCredential) async throws -> AuthDataResultModel {
+        return try await signIn(credential: credential)
+    }
+    
+    
+    func signIn(credential: AuthCredential) async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signIn(with: credential)
+        return AuthDataResultModel(user: authDataResult.user)
     }
 }
