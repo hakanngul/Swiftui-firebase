@@ -33,20 +33,42 @@ final class AuthenticationManager : ObservableObject {
         return AuthDataResultModel(user: user)
     }
     
+    @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResultModel{
+        print("Before In CreateUser -- Login -- AuthenticationManager")
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
+        print("After In CreateUser -- Login -- AuthenticationManager")
         return AuthDataResultModel(user: authDataResult.user)
     }
     
-    func loginUserWithEmail(email: String, password: String) async throws -> AuthDataResultModel {
+    @discardableResult
+    func signInUser(email: String, password: String) async throws -> AuthDataResultModel{
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
+        
         return AuthDataResultModel(user: authDataResult.user)
     }
     
-    func login(email: String, password: String){
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard self != nil else { return }
-          // ...
+    func ressetPassword(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
+    
+    func updatePassword(password: String) async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
         }
+        
+        try await user.updatePassword(to: password)
+    }
+    
+    func updateEmail(email: String) async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
+        
+        try await user.updateEmail(to: email)
+    }
+    
+    func signOut() throws {
+        try Auth.auth().signOut()
     }
 }

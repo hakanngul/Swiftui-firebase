@@ -19,6 +19,7 @@
 		AE0579DC29C4F7C500447470 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0579DB29C4F7C500447470 /* SignInEmailView.swift */; };
 		AE0579DE29C4F8F100447470 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0579DD29C4F8F000447470 /* AuthenticationManager.swift */; };
 		AE0579E029C4FD4E00447470 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0579DF29C4FD4E00447470 /* RootView.swift */; };
+		AE0579E229C51F5500447470 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0579E129C51F5500447470 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AE0579DB29C4F7C500447470 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
 		AE0579DD29C4F8F000447470 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		AE0579DF29C4FD4E00447470 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		AE0579E129C51F5500447470 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,9 @@
 			children = (
 				AE0579D929C4F62000447470 /* AuthenticationView.swift */,
 				AE0579DB29C4F7C500447470 /* SignInEmailView.swift */,
-				AE0579DD29C4F8F000447470 /* AuthenticationManager.swift */,
 				AE0579DF29C4FD4E00447470 /* RootView.swift */,
+				AE0579E129C51F5500447470 /* SettingsView.swift */,
+				AE0579DD29C4F8F000447470 /* AuthenticationManager.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0579E229C51F5500447470 /* SettingsView.swift in Sources */,
 				AE0579C329C4DD1500447470 /* ContentView.swift in Sources */,
 				AE0579C129C4DD1500447470 /* SwiftUi_with_FirebaseApp.swift in Sources */,
 				AE0579E029C4FD4E00447470 /* RootView.swift in Sources */,
